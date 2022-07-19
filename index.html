@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <header>Registration</header>
+
+        <form action="connect.php" method="post">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required name="fullName">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date" required name="dateofbirth">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Enter your email" required name="email">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Home address</label>
+                            <input type="text" placeholder="Enter home ddress" required name="homeaddress">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nationality</label>
+                            <input type="text" placeholder="Enter nationality" required name="nationality">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Fathers Name</label>
+                            <input type="text" placeholder="Enter your father's name" required name="fatherName">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother name</label>
+                            <input type="text" placeholder="Enter your mother's name" required name="motherName">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Telephone-Home</label>
+                            <input type="number" placeholder="Enter your home number" required name="phoneHome">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Telephone-Mobile</label>
+                            <input type="number" placeholder="Enter your mobile number" required name="phoneMobile">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select required>
+                                <option disabled selected>Select gender</option>
+                                <option name="gender" value="m">Male</option>
+                                <option name="gender" value="f">Female</option>
+                                <option name="gender" value="0">Others</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title">Qualification Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>HSC Institution name</label>
+                            <input type="text" placeholder="Enter institution name" required name="hscName">
+                        </div>
+
+                        <div class="input-field">
+                            <label>HSC Board</label>
+                            <input type="text" placeholder="i.e CBSC,ICSC or stateboard" required name="hscBoard">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Score in HSC in percentage</label>
+                            <input type="number" placeholder="Enter percentage" required name="hscScore">
+                        </div>
+
+                        <div class="input-field">
+                            <label>SSC Institution name</label>
+                            <input type="text" placeholder="Enter institution name" required name="sscName">
+                        </div>
+
+                        <div class="input-field">
+                            <label>SSC board</label>
+                            <input type="text" placeholder="i.e CBSC,ICSC or stateboard" required name="sscBoard">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Score in SSC in percentage</label>
+                            <input type="number" placeholder="Enter percentage" required name="sscScore">
+                        </div>
+                    </div>
+
+                    <button class="nextBtn">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
+            </div>
+
+            <div class="form second">
+                <div class="details address">
+                    <span class="title">Qualification Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Currently persuing</label>
+                            <input type="text" placeholder="Enter current qualification" required name="currentPursuing">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Current Educational Institute name</label>
+                            <input type="text" placeholder="Enter current institute" required name="CurrentinstituteName">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Current backlogs if any</label>
+                            <input type="text" placeholder="Type yes or no" required name="backlog">
+                        </div>
+                   </div>
+                </div>
+
+                <div class="details family">
+                    <span class="title">Documents Details</span>
+
+                    <div class="fields">
+                        <div class="input-fields">
+                            <label>Recent passport size pgotograph(image size less than 4MB)</label>
+                            <input type="file" id="real-file" hidden="hidden" name="photo"/>
+                            <button type="button" id="custom-button">CHOOSE A FILE</button>
+                            <span id="custom-text">No file chosen, yet.</span>
+
+                            <script type="text/javascript">
+                                const realfileBtn=document.getElementById("real-file");
+                                const customBtn= document.getElementById("custom-button");
+                                const customTxt= document.getElementById("custom-text");
+
+                                customBtn.addEventListener("click",function(){
+                                   realfileBtn.click();
+                                });
+
+                                realfileBtn.addEventListener("change", function(){
+                                    if(realfileBtn.value){
+                                        customTxt.innerHTML=realfileBtn.value.match(/[\/\\]([\w\d\s\.\-(\)]+)$/)[1];
+                                    }else{
+                                      customTxt.innerHTML="No file choosen, yet.";
+                                    }
+
+                                });
+                               </script>
+                          
+                        </div>
+                        <div class="input-fields">
+                           <label>HSC mark sheet(image,PDF or docs size less than 4MB)</label>
+                           <input type="file" id="actual-file" hidden="hidden" name="hscphoto"/>
+                            <button type="button" id="custon-button">CHOOSE A FILE</button>
+                            <span id="custon-text">No file chosen, yet.</span>
+
+                            <script type="text/javascript">
+                                const actualfileBtn=document.getElementById("actual-file");
+                                const custonBtn= document.getElementById("custon-button");
+                                const custonTxt= document.getElementById("custon-text");
+
+                                custonBtn.addEventListener("click",function(){
+                                   actualfileBtn.click();
+                                });
+
+                                actualfileBtn.addEventListener("change", function(){
+                                    if(actualfileBtn.value){
+                                        custonTxt.innerHTML=actualfileBtn.value.match(/[\/\\]([\w\d\s\.\-(\)]+)$/)[1];
+                                    }else{
+                                      custonTxt.innerHTML="No file choosen, yet.";
+                                    }
+
+                                });
+                               </script>
+                       </div>
+                       <div class="input-fields">
+                           <label>SSC mark sheet(image,PDF or docs size less than 4MB)</label>
+                           <input type="file" id="reall-file" hidden="hidden" name="sscphoto"/>
+                            <button type="button" id="customn-button">CHOOSE A FILE</button>
+                            <span id="customn-text">No file chosen, yet.</span>
+
+                            <script type="text/javascript">
+                                const reallfileBtn=document.getElementById("reall-file");
+                                const customnBtn= document.getElementById("customn-button");
+                                const customnTxt= document.getElementById("customn-text");
+
+                                customnBtn.addEventListener("click",function(){
+                                   reallfileBtn.click();
+                                });
+
+                                reallfileBtn.addEventListener("change", function(){
+                                    if(reallfileBtn.value){
+                                        customnTxt.innerHTML=reallfileBtn.value.match(/[\/\\]([\w\d\s\.\-(\)]+)$/)[1];
+                                    }else{
+                                      customnTxt.innerHTML="No file choosen, yet.";
+                                    }
+
+                                });
+                               </script>
+                       </div>
+                       <div class="input-fields">
+                           <label>All semestars marksheet in a single PDF or docs(file size less than 10MB)</label>
+                           <input type="file" id="reale-file" hidden="hidden" name="totalmarksheet"/>
+                            <button type="button" id="customm-button">CHOOSE A FILE</button>
+                            <span id="customm-text">No file chosen, yet.</span>
+
+                            <script type="text/javascript">
+                                const realefileBtn=document.getElementById("reale-file");
+                                const custommBtn= document.getElementById("customm-button");
+                                const custommTxt= document.getElementById("customm-text");
+
+                                custommBtn.addEventListener("click",function(){
+                                   realefileBtn.click();
+                                });
+
+                                realefileBtn.addEventListener("change", function(){
+                                    if(realefileBtn.value){
+                                        custommTxt.innerHTML=realefileBtn.value.match(/[\/\\]([\w\d\s\.\-(\)]+)$/)[1];
+                                    }else{
+                                      custommTxt.innerHTML="No file choosen, yet.";
+                                    }
+
+                                });
+                               </script>
+                       </div>
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+                        
+                        <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
